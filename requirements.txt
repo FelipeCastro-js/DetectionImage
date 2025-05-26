@@ -1,0 +1,15 @@
+# Interfaz web
+streamlit
+
+# Modelo YOLOv11
+ultralytics
+
+# Procesamiento de imágenes
+opencv-python
+Pillow
+
+# Utilidades generales
+numpy
+
+# Para evitar errores de tipado
+typing-extensions
