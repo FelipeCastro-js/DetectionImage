@@ -2,6 +2,7 @@ import streamlit as st
 from PIL import Image
 import tempfile
 import os
+import gdown
 from ultralytics import YOLO
 from collections import defaultdict
 import warnings
@@ -11,12 +12,22 @@ warnings.filterwarnings("ignore", category=UserWarning)
 st.title("🥩 Detección de Alimentos y Estimación de Proteína")
 st.write("Sube una imagen y el modelo YOLOv11 detectará los alimentos, estimando cuánta proteína consumirás.")
 
+MODEL_PATH = "best.pt"
+GOOGLE_DRIVE_FILE_ID = "1w_-bQL55EBGDogyc5O8VITmZYeVjj8ZG"
+
+def model_not_exist():
+    if not os.path.exists(MODEL_PATH):
+        url = f"https://drive.google.com/uc?id={GOOGLE_DRIVE_FILE_ID}"
+        st.info("📥 Descargando modelo desde Google Drive...")
+        gdown.download(url, MODEL_PATH, quiet=False)
+
 # ---------------------
 # Cargar modelo YOLOv11 entrenado
 # ---------------------
 @st.cache_resource
 def load_model():
-    return YOLO("../runs/detect/train/weights/best.pt")
+    model_not_exist()
+    return YOLO(MODEL_PATH)
 
 model = load_model()
 
