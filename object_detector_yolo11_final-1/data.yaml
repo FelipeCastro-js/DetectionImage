@@ -1,0 +1,13 @@
+train: ../train/images
+val: ../valid/images
+test: ../test/images
+
+nc: 19
+names: ['aguacate', 'arepa', 'arroz', 'arvejas', 'avena', 'carne de cerdo', 'carne de res', 'frijoles', 'garbanzos', 'huevos', 'lentejas', 'manzana', 'papa', 'pasta', 'pera', 'pescado', 'platano', 'pollo', 'yuca']
+
+roboflow:
+  workspace: alejandrospace
+  project: object_detector_yolo11_final
+  version: 1
+  license: CC BY 4.0
+  url: https://universe.roboflow.com/alejandrospace/object_detector_yolo11_final/dataset/1
