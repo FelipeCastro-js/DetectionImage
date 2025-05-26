@@ -15,9 +15,6 @@ st.write("Sube una imagen y el modelo YOLOv11 detectará los alimentos, estimand
 MODEL_PATH = "best.pt"
 GOOGLE_DRIVE_FILE_ID = "1w_-bQL55EBGDogyc5O8VITmZYeVjj8ZG"
 
-# ---------------------
-# Cargar modelo YOLOv11 entrenado
-# ---------------------
 @st.cache_resource
 def load_model():
     if not os.path.exists(MODEL_PATH):
