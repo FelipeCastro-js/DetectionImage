@@ -6,11 +6,6 @@ venv/
 *.env
 *.env.*
 
-# Modelos entrenados
-*.pt
-
-# Carpetas generadas por YOLO o salidas de entrenamiento
-runs/
 
 # Archivos Python compilados
 __pycache__/
