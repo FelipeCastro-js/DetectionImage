@@ -1,6 +1,6 @@
 streamlit>=1.30.0
-ultralytics
-opencv-python
+ultralytics==8.1.37
+opencv-python==4.7.0.72
 Pillow
 numpy
 typing-extensions
