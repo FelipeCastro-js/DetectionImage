@@ -15,18 +15,15 @@ st.write("Sube una imagen y el modelo YOLOv11 detectará los alimentos, estimand
 MODEL_PATH = "best.pt"
 GOOGLE_DRIVE_FILE_ID = "1w_-bQL55EBGDogyc5O8VITmZYeVjj8ZG"
 
-def model_not_exist():
-    if not os.path.exists(MODEL_PATH):
-        url = f"https://drive.google.com/uc?id={GOOGLE_DRIVE_FILE_ID}"
-        st.info("📥 Descargando modelo desde Google Drive...")
-        gdown.download(url, MODEL_PATH, quiet=False)
-
 # ---------------------
 # Cargar modelo YOLOv11 entrenado
 # ---------------------
 @st.cache_resource
 def load_model():
-    model_not_exist()
+    if not os.path.exists(MODEL_PATH):
+        with st.spinner("📥 Descargando modelo desde Google Drive..."):
+            url = f"https://drive.google.com/uc?id={GOOGLE_DRIVE_FILE_ID}"
+            gdown.download(url, MODEL_PATH, quiet=False)
     return YOLO(MODEL_PATH)
 
 model = load_model()
